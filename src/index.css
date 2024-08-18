@@ -1,0 +1,25 @@
+/** @format */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  /* background-color: #f0f1f7; */
+  background: linear-gradient(
+    to right bottom,
+    rgba(240, 241, 247, 1) 50%,
+    rgb(238, 238, 195) 100%
+  );
+}
+
+@layer components {
+  body {
+    @apply font-body;
+  }
+  h1,
+  h2,
+  p,
+  h3 {
+    @apply font-display text-gray-800;
+  }
+}
