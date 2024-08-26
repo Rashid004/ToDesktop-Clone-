@@ -4,9 +4,12 @@ import { FaBars } from "react-icons/fa6";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { RxCross2 } from "react-icons/rx";
 import "../index.css";
+import { useTranslation } from "react-i18next";
+import LanguageSelector from "./LanguageSelector";
 
 function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
+  const { t } = useTranslation();
 
   return (
     <nav className="flex items-center justify-between px-5 bg-white py-1">
@@ -16,7 +19,7 @@ function Navigation() {
           src="public/assets/logo.png"
           alt="Logo"
         />
-        <span className="text-lg font-semibold">ToDesktop</span>
+        <span className="text-lg font-semibold">{t("ToDesktop")}</span>
       </a>
 
       <div className="hidden lg:flex items-center gap-3 ">
@@ -24,40 +27,43 @@ function Navigation() {
           href="#"
           className="hover:bg-indigo-500 rounded-md block font-semibold m-3 p-3 text-lg "
         >
-          Pricing
+          {t("Pricing")}
         </a>
         <a
           href="#"
           className="hover:bg-indigo-500 rounded-md block font-semibold m-3 p-3 text-lg"
         >
-          Docs
+          {t("Docs")}
         </a>
         <a
           href="#"
           className="hover:bg-indigo-500 rounded-md block font-semibold m-3 p-3 text-lg"
         >
-          Changelog
+          {t("Changelog")}
         </a>
         <a
           href="#"
           className="hover:bg-indigo-500 rounded-md block font-semibold m-3 p-3 text-lg"
         >
-          Blog
+          {t("Blog")}
         </a>
         <a
           href="#"
           className="hover:bg-indigo-500 rounded-md block font-semibold m-3 p-3 text-lg"
         >
-          Login
+          {t("Login")}
         </a>
       </div>
 
       <div className="hidden lg:flex flex-1 justify-end">
         <button className=" flex items-center gap-1 text-lg px-2 py-1 rounded-lg font-medium border border-gray-400 hover:border-gray-600">
           <img src="public/assets/electron.svg" alt="Electron" />
-          <span>Electron Developer</span>
+          <span>{t("Electron Developer")}</span>
           <IoIosArrowRoundForward />
         </button>
+      </div>
+      <div className="hidden lg:flex flex-1 justify-end">
+        <LanguageSelector />
       </div>
 
       <button
@@ -76,7 +82,7 @@ function Navigation() {
             <a href="#" className="flex items-center gap-1">
               <img src="public/assets/logo.png" alt="Logo" />
               <span className="text-lg lg:text-xl font-semibold">
-                ToDesktop
+                {t("ToDesktop")}
               </span>
             </a>
             <button
@@ -91,25 +97,25 @@ function Navigation() {
               href="#"
               className="hover:bg-gray-50 rounded-md block font-semibold p-3"
             >
-              Pricing
+              {t("Pricing")}
             </a>
             <a
               href="#"
               className="hover:bg-gray-50 rounded-md block font-semibold p-3"
             >
-              Docs
+              {t("Docs")}
             </a>
             <a
               href="#"
               className="hover:bg-gray-50 rounded-md block font-semibold p-3"
             >
-              Changelog
+              {t("Changelog")}
             </a>
             <a
               href="#"
               className="hover:bg-gray-50 rounded-md block font-semibold p-3"
             >
-              Blog
+              {t("Blog")}
             </a>
             <a
               href="#"

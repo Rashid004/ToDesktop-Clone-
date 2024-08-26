@@ -1,5 +1,6 @@
 /** @format */
 import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { MdOutlineArrowForward } from "react-icons/md";
 
 function Hero() {
@@ -62,6 +63,8 @@ function Hero() {
     };
   }, []);
 
+  const { t } = useTranslation();
+
   return (
     <>
       {/* Hero Container */}
@@ -76,39 +79,44 @@ function Hero() {
           >
             <div className="w-2 h-2 rounded-full bg-yellow-400 border border-yellow-300"></div>
             <p className="text-base sm:text-lg font-semibold text-yellow-600">
-              v0.22.3:
-              <span className="text-yellow-800">Find-in-page bug fix</span>
+              {t(" v0.22.3:")}
+              <span className="text-yellow-800">
+                {t("Find-in-page bug fix")}
+              </span>
             </p>
             <MdOutlineArrowForward className="text-yellow-600 group-hover:translate-x-1 transition" />
           </div>
           <div className="hidden sm:flex gap-8 my-6">
             <div className="flex justify-center items-center gap-2 text-gray-500 ">
               <img src="public/assets/file.svg" alt="File" />
-              <p>Code optional</p>
+              <p>{t("Code optional")}</p>
             </div>
             <div className="flex justify-center items-center gap-2 text-gray-500 ">
               <img src="public/assets/hand.svg" alt="File" />
 
-              <p>Drag & drop builder</p>
+              <p>{t("Drag & drop builder")}</p>
             </div>
             <div className="flex justify-center items-center gap-2 text-gray-500 ">
               <img src="public/assets/store.svg" alt="File" />
-              <p>Windowa, Mac, Linux</p>
+              <p>{t("Windowa, Mac, Linux")}</p>
             </div>
           </div>
           <h1 className="text-4xl sm:text-7xl font-semibold leading-snug sm:leading-normal ">
-            Web app to desktop app in minutes
+            {t(" Web app to desktop app in minutes")}
           </h1>
           <p className="text-xl sm:text-2xl text-gray-800 mt-4 ">
-            Take your web app codebase and transform it into a cross platform
-            desktop app with native <br className="md:hidden" /> functionality.
+            {t(
+              `Take your web app codebase and transform it into a cross platform ${(
+                <br className="md:hidden" />
+              )}desktop app with native  functionality.`
+            )}
           </p>
           <div className="flex flex-col md:justify-center md:flex-row gap-4 mt-12">
             <button className="px-8 py-3 bg-indigo-600 font-semibold hover:bg-opacity-90 text-white shadow-sm rounded-lg">
-              Download Now
+              {t("Download Now")}
             </button>
             <button className="px-8 py-3 bg-white font-semibold border border-gray-400 hover:border-gray-800 shadow-sm rounded-lg">
-              Read docs
+              {t(" Read docs")}
             </button>
           </div>
         </div>
@@ -119,7 +127,9 @@ function Hero() {
               src="public/assets/arrow.svg"
               alt="Arrow down"
             />
-            <span className="font-semibold">Apps powered by To Desktop</span>
+            <span className="font-semibold">
+              {t("Apps powered by To Desktop")}
+            </span>
             <img
               className="translate-y-2 -scale-x-100"
               src="public/assets/arrow.svg"
@@ -139,7 +149,7 @@ function Hero() {
                   alt="icon"
                 />
                 <span className="text-xs md:text-base font-semibold">
-                  beeper
+                  {t(" beeper")}
                 </span>
               </div>
               <div className="flex flex-col items-center justify-center min-h-24 min-w-24  bg-white rounded-xl border border-gray-500 md:min-h-32 md:min-w-32">
@@ -149,7 +159,7 @@ function Hero() {
                   alt="icon"
                 />
                 <span className="text-xs md:text-base font-semibold">
-                  Grain
+                  {t(" Grain")}
                 </span>
               </div>
               <div className="flex flex-col items-center justify-center min-h-24 min-w-24  bg-white rounded-xl border border-gray-500 md:min-h-32 md:min-w-32">
@@ -159,7 +169,7 @@ function Hero() {
                   alt="icon"
                 />
                 <span className="text-xs md:text-base font-semibold">
-                  Bento
+                  {t("Bento")}
                 </span>
               </div>
               <div className="flex flex-col items-center justify-center min-h-24 min-w-24  bg-white rounded-xl border border-gray-500 md:min-h-32 md:min-w-32">
@@ -169,7 +179,7 @@ function Hero() {
                   alt="icon"
                 />
                 <span className="text-xs md:text-base font-semibold">
-                  Voiceflow
+                  {t("Voiceflow")}
                 </span>
               </div>
               <div className="flex flex-col items-center justify-center min-h-24 min-w-24  bg-white rounded-xl border border-gray-500 md:min-h-32 md:min-w-32">
@@ -340,7 +350,7 @@ function Hero() {
                   alt="icon"
                 />
                 <span className="text-xs md:text-base font-semibold">
-                  Voiceflow
+                  {t("Voiceflow")}
                 </span>
               </div>
               <div className="flex flex-col items-center justify-center min-h-24 min-w-24  bg-white rounded-xl border border-gray-500 md:min-h-32 md:min-w-32">
@@ -511,7 +521,7 @@ function Hero() {
                   alt="icon"
                 />
                 <span className="text-xs md:text-base font-semibold">
-                  Voiceflow
+                  {t("Voiceflow")}
                 </span>
               </div>
               <div className="flex flex-col items-center justify-center min-h-24 min-w-24  bg-white rounded-xl border border-gray-500 md:min-h-32 md:min-w-32">

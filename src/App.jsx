@@ -4,8 +4,49 @@ import { BiCheck } from "react-icons/bi";
 import Hero from "./components/Hero";
 import Navigation from "./components/Navigation";
 import "./index.css";
+import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
+import { useState } from "react";
 
 function App() {
+  const data = [
+    {
+      question: "Is ToDesktop For Me?",
+      answer:
+        "That depends! If you would like to distribute your web app to your users as a downloadable desktop app then ToDesktop is for you. If you want to make a desktop app of a website for your personal use, ToDesktop is overkill.",
+    },
+    {
+      question: "Can I try ToDesktop without buying?",
+      answer:
+        "Yes. You can get started by downloading ToDesktop Builder at no cost. After installing it, you can build your desktop application and preview it by clicking the 'Run' button. This allows you to test the app on your own computer to ensure it performs to your expectations.",
+    },
+    {
+      question: "What support do you offer?",
+      answer:
+        "We’ll do our best to help you with any issue you encounter with ToDesktop. You can get in touch with us via email and chat. On the Startup plan, we deal with the same day or the next day.",
+    },
+    {
+      question: "How does ToDesktop pricing work?",
+      answer:
+        "ToDesktop offers different pricing plans based on your needs. The Startup plan includes basic features, while the Professional and Enterprise plans offer advanced features and dedicated support. You can choose a plan that fits your requirements.",
+    },
+    {
+      question: "What platforms does ToDesktop support?",
+      answer:
+        "ToDesktop supports Windows, macOS, and Linux platforms. You can build a desktop application that runs on all major operating systems using ToDesktop Builder.",
+    },
+    {
+      question: "Can I customize the look and feel of my desktop app?",
+      answer:
+        "Yes, ToDesktop allows you to fully customize the appearance of your desktop application. You can adjust the design, add your branding, and create a seamless user experience that aligns with your brand.",
+    },
+  ];
+
+  const [isTrue, setIsTrue] = useState(Array(data.length).fill(false));
+
+  const handleToggle = (index) => {
+    setIsTrue((prev) => prev.map((value, i) => (i === index ? !value : value)));
+  };
+
   return (
     <div>
       <Navigation />
@@ -188,6 +229,41 @@ function App() {
           <div className="pt-16">
             <img src="./assets/asset 68.svg" alt="icon 66" />
           </div>
+        </div>
+      </div>
+
+      <div
+        id="faqs"
+        className="px-6 py-12 mt-16 max-w-7xl mx-auto lg:px-8 lg:mt-32"
+      >
+        <h2 className="text-4xl sm:font-semibold uppercase">Faqs</h2>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 mt-6">
+          {data.map((item, index) => (
+            <div
+              key={index}
+              className="group border bg-gray-50 border-gray-200 rounded-xl p-6 flex flex-col"
+            >
+              <dt className="flex justify-between items-center">
+                <p className="font-display font-medium text-lg">
+                  {item.question}
+                </p>
+                <button onClick={() => handleToggle(index)}>
+                  {isTrue[index] ? (
+                    <MdKeyboardArrowDown className="w-8 h-8" />
+                  ) : (
+                    <MdKeyboardArrowUp className="w-8 h-8" />
+                  )}
+                </button>
+              </dt>
+              {isTrue[index] && (
+                <dd className="transition duration-150 ease-in-out">
+                  <p className="font-body text-lg font-light mt-6 text-gray-500">
+                    {item.answer}
+                  </p>
+                </dd>
+              )}
+            </div>
+          ))}
         </div>
       </div>
       <div className="h-[1000px]"></div>
